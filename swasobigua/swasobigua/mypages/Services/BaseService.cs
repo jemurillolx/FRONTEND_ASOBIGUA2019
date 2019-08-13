@@ -8,7 +8,7 @@ namespace swasobigua.mypages.Services
     public class BaseService
     {
         protected static HttpClient Client { get; private set; }
-        protected static readonly string baseUrl = "https://asobiguatesisapi.azurewebsites.net";
+        protected static readonly string baseUrl = "https://mocktesisasobiguaapi.azurewebsites.net";
 
         public BaseService()
         {
