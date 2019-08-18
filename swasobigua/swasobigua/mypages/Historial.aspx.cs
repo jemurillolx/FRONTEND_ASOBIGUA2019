@@ -46,9 +46,53 @@ namespace swasobigua.mypages
             }
         }
 
-        protected async Task ShotHistoryDataAsync(CancellationToken cancellationToken, string player, int count)
+        protected async Task ShotHistoryDataAsync(CancellationToken cancellationToken, string player, int count, int day1, int day2, int year1, int year2, int month1, int month2)
         {
-            var result = await playerService.GetHistoryDataShotByPlayerAsync(player, count);
+            int caseSelect = 0;
+            string vdate1, vdate2;
+            if (year1 > 1 && year2 > 1)
+            {
+                caseSelect = 2;
+                if (count == 0)
+                {
+                    caseSelect = 3;
+                }
+                vdate1 = year1.ToString() + month1.ToString();
+
+                if (month1 < 10)
+                {
+                    vdate1 = year1.ToString() + "0" + month1.ToString();
+                }
+                vdate2 = year2.ToString() + month2.ToString();
+                if (month2 < 10 )
+                {
+                    vdate2 = year2.ToString()+"0" + month2.ToString();
+                }
+                
+                if (day1 < 10)
+                {
+                    vdate1 = vdate1 + "0";
+                }
+                if (day2 < 10)
+                {
+                    vdate2 = vdate2 + "0";
+                }
+                vdate1 = vdate1 + day1;
+                vdate2 = vdate2 + day2;
+            }
+            else
+            {
+                vdate2 = vdate1 = "0";
+                caseSelect = 4;
+                if (count > 0)
+                {
+                    caseSelect = 1;
+                }
+
+            }
+           
+           
+            var result = await playerService.GetHistoryDataShotByPlayerAsync(player, count,vdate1,vdate2,caseSelect);
             if (result.HttpResponseStatusCode.Equals(HttpStatusCode.OK))
             {
                 List<shotdatahistory> history = result.Value;
@@ -84,11 +128,25 @@ namespace swasobigua.mypages
 
         protected void btncountshots_Click(object sender, EventArgs e)
         {
-            if (tbxLimite.Text.ToString().Trim() != "")
+            if (tbxLimite.Text.ToString().Trim() == "")
             {
+                tbxLimite.Text = "0";
+            }
+            if (tbxLimite.Text.ToString().Trim() != "")
+            {   if (Int32.Parse(tbxLimite.Text) < 0)
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(string), "Mensaje", "swal('¡Advertencia!', '" + "Ingrese una cantidad mayor a 0 en el límite." + "', 'error');", true);
+                    return;
+                }
                 try
                 {
-                    var pageAsyncTask = new PageAsyncTask(j => ShotHistoryDataAsync(j, Session["Player"].ToString(), Int32.Parse(tbxLimite.Text)));
+                    int ini =fechaINI.SelectedDate.Day;
+                    int fin = FechaFin.SelectedDate.Day;
+                    int validateYear1 = fechaINI.SelectedDate.Year;
+                    int validateYear2 = FechaFin.SelectedDate.Year;//null is 001
+                    int month1 = fechaINI.SelectedDate.Month;
+                    int month2 = FechaFin.SelectedDate.Month;
+                    var pageAsyncTask = new PageAsyncTask(j => ShotHistoryDataAsync(j, Session["Player"].ToString(), Int32.Parse(tbxLimite.Text), ini,fin, validateYear1, validateYear2, month1, month2));
                     this.RegisterAsyncTask(pageAsyncTask);
                 }
                 catch (Exception ex)

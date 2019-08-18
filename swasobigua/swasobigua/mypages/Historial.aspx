@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Async="true" AutoEventWireup="true" CodeBehind="Historial.aspx.cs" Inherits="swasobigua.mypages.Historial" %>
+﻿<%@ Page Language="C#" Async="true" Culture="es-DO" AutoEventWireup="true" CodeBehind="Historial.aspx.cs" Inherits="swasobigua.mypages.Historial" %>
 
 <!DOCTYPE html>
 
@@ -229,172 +229,195 @@
 
 
                     </div>
-
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="panel panel-default">
-                                <div class="panel-heading">Límite</div>
+                                <div class="panel-heading">Fecha Inicio</div>
                                 <div class="panel-body">
                                     <p>
-                                        <asp:TextBox ID="tbxLimite" TextMode="Number" runat="server" CssClass="form-control input-lg "></asp:TextBox>
+                                        <asp:Calendar ID="fechaINI" runat="server" BackColor="White"></asp:Calendar>
                                     </p>
                                 </div>
                             </div>
-
-
                         </div>
-                        <!-- /.col-lg-4 -->
                         <div class="col-lg-6">
-                            <p>
-                                <asp:Button ID="btncountshots" runat="server" Text="Cargar Historial" OnClick="btncountshots_Click" class="btn  btn-succes" />
-
-                            </p>
-                        </div>
-
-
-                    </div>
-                    <div class="row">
-                         <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Pausa Atrás</div>
+                            <div class="col-lg-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Fecha Fin</div>
+                                    <div class="panel-body">
+                                        <p>
+                                            <asp:Calendar ID="FechaFin" runat="server" BackColor="White"></asp:Calendar>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                         
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <p>
-                                <div id="myDiv" width="100%" height="500px"></div>
-                            </p>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Límite</div>
+                                    <div class="panel-body">
+                                        <p>
+                                            <asp:TextBox ID="tbxLimite" TextMode="Number" runat="server" CssClass="form-control input-lg "></asp:TextBox>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <!-- /.col-lg-4 -->
+                            <div class="col-lg-6">
+                                <p>
+                                    <asp:Button ID="btncountshots" runat="server" Text="Cargar Historial" OnClick="btncountshots_Click" class="btn  btn-succes" />
+
+                                </p>
+                            </div>
+
+
                         </div>
-                    </div>
-                     <div class="row">
-                         <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Sutileza</div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Pausa Atrás</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p>
+                                    <div id="myDiv" width="100%" height="500px"></div>
+                                </p>
                             </div>
                         </div>
-                         
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <p>
-                                <div id="Finesses" width="100%" height="500px"></div>
-                            </p>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Sutileza</div>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-                    <div class="row">
-                         <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Finalización</div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p>
+                                    <div id="Finesses" width="100%" height="500px"></div>
+                                </p>
                             </div>
                         </div>
-                         
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <p>
-                                <div id="Finish" width="100%" height="500px"></div>
-                            </p>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Finalización</div>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-                    <div class="row">
-                         <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Seguimiento al Taco</div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p>
+                                    <div id="Finish" width="100%" height="500px"></div>
+                                </p>
                             </div>
                         </div>
-                         
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <p>
-                                <div id="FollowThrough" width="100%" height="500px"></div>
-                            </p>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Seguimiento al Taco</div>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-                    <div class="row">
-                         <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Golpe</div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p>
+                                    <div id="FollowThrough" width="100%" height="500px"></div>
+                                </p>
                             </div>
                         </div>
-                         
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <p>
-                                <div id="Jab" width="100%" height="500px"></div>
-                            </p>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Golpe</div>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-                    <div class="row">
-                         <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Intervalo de Tiró</div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p>
+                                    <div id="Jab" width="100%" height="500px"></div>
+                                </p>
                             </div>
                         </div>
-                         
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <p>
-                                <div id="ShotInterval" width="100%" height="500px"></div>
-                            </p>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Intervalo de Tiró</div>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-                    <div class="row">
-                         <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Rectitud</div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p>
+                                    <div id="ShotInterval" width="100%" height="500px"></div>
+                                </p>
                             </div>
                         </div>
-                         
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <p>
-                                <div id="Straightness" width="100%" height="500px"></div>
-                            </p>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Rectitud</div>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-                     <div class="row">
-                         <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Dirección de la Punta</div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p>
+                                    <div id="Straightness" width="100%" height="500px"></div>
+                                </p>
                             </div>
                         </div>
-                         
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <p>
-                                <div id="TipSteer" width="100%" height="500px"></div>
-                            </p>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Dirección de la Punta</div>
+                                </div>
+                            </div>
+
                         </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p>
+                                    <div id="TipSteer" width="100%" height="500px"></div>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /grafica del Straightnes del brazo -->
+
+
+                        <!-- /.row -->
+
+
+                        <!-- START THE FEATURETTES -->
+
+
+                        <hr class="featurette-divider" />
+
+                        <!-- /END THE FEATURETTES -->
+
                     </div>
-                    <!-- /grafica del Straightnes del brazo -->
+                    <!-- /.container -->
 
 
-                    <!-- /.row -->
-
-
-                    <!-- START THE FEATURETTES -->
-
-
-                    <hr class="featurette-divider" />
-
-                    <!-- /END THE FEATURETTES -->
-
-                </div>
-                <!-- /.container -->
-
-
-                <!-- FOOTER -->
-                <footer class="container">
-                    <p class="float-right"><a href="#" style="color: ghostwhite">Ir a arriba</a></p>
-                    <p style="color: ghostwhite">&copy; Todos los derechos reservados.</p>
-                </footer>
+                    <!-- FOOTER -->
+                    <footer class="container">
+                        <p class="float-right"><a href="#" style="color: ghostwhite">Ir a arriba</a></p>
+                        <p style="color: ghostwhite">&copy; Todos los derechos reservados.</p>
+                    </footer>
             </main>
         </div>
         <!-- Bootstrap core JavaScript

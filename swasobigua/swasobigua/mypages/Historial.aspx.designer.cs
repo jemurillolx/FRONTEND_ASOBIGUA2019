@@ -85,6 +85,24 @@ namespace swasobigua.mypages {
         protected global::System.Web.UI.WebControls.TextBox tbxTrainerLastName;
         
         /// <summary>
+        /// fechaINI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar fechaINI;
+        
+        /// <summary>
+        /// FechaFin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar FechaFin;
+        
+        /// <summary>
         /// tbxLimite control.
         /// </summary>
         /// <remarks>

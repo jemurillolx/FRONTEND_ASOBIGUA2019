@@ -61,7 +61,8 @@ namespace swasobigua.mypages
                 tbxTrainerName.Text = data.Trainer.Name;
                 tbxTrainerLastName.Text = data.Trainer.Lastname;
                 var dt = Convert.ToDateTime(data.TimeStamp);
-                tbxFecha.Text = dt.ToString("MM/dd/yyyy HH:mm:ss");
+                dt = dt.AddHours(-6);//UTC GT
+                tbxFecha.Text = dt.ToString("dd/MM/yyyy HH:mm:ss");
 
                 string mu = "'{  \"shotXYZ\": { ";
                 string at = mu;

@@ -106,9 +106,9 @@ namespace swasobigua.mypages
                     row["id"] = shot.Id.ToString();
                     row["shot"] = shot.Id.ToString(); //i.ToString();
                     var dt = Convert.ToDateTime(shot.TimeStamp);
-                    var dt2 = TimeZone.CurrentTimeZone.ToLocalTime(dt);
+                    var dt2 =dt.AddHours(-6);
                     dt = dt2;
-                    row["timeStamp"] = dt.ToString("MM/dd/yyyy HH:mm:ss");
+                    row["timeStamp"] = dt.ToString("dd/MM/yyyy HH:mm:ss");
                     row["trainer"] = (shot.Trainer.Name + "-" + shot.Trainer.Lastname);
                     table.Rows.Add(row);
                     i++;

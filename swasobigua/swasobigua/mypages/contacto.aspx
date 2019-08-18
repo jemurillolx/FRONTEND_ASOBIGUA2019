@@ -25,7 +25,7 @@
                     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                         
                     <a>
-                        <asp:ImageButton ID="imgbtnHome" runat="server"  ImageUrl="images/asobigua-logo.png" Width="200px"/>
+                        <asp:ImageButton ID="imgbtnHome" runat="server"  ImageUrl="images/asobigua-logo.png" OnClick="btnlogin_Click" Width="200px"/>
                     </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,6 @@
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
 
-                                    <asp:Button ID="btnlogin" runat="server" Text="Iniciar Sesión" OnClick="btnlogin_Click" class="btn btn-primary btn-lg"/>
                                 </li>
                                 
                             </ul>

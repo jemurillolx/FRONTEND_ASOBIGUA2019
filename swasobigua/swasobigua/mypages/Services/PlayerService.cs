@@ -147,13 +147,29 @@ namespace swasobigua.mypages.Services
 
             return new AsobiguaApiResponse<shotdata>(response.StatusCode, result.Message);
         }
-        public async Task<AsobiguaApiResponse<List<shotdatahistory>>> GetHistoryDataShotByPlayerAsync(string player, int count)
+        public async Task<AsobiguaApiResponse<List<shotdatahistory>>> GetHistoryDataShotByPlayerAsync(string player, int count, string d1, string d2, int caseSelect)
         {
             HttpResponseMessage response;
 
             try
             {
-                response = await Client.GetAsync("/v1/shots/player/" + player+ "/history?count="+count.ToString());
+                switch (caseSelect)
+                {
+                    case 1://count > 0, not days, years in 1
+                        response = await Client.GetAsync("/v1/shots/player/" + player + "/history?count=" + count.ToString());
+                        break;
+                    case 2://count > 0,  days, years not in 1
+                        response = await Client.GetAsync("/v1/shots/player/" + player+ "/history?count=" + count.ToString()+ "&fromDate="+d1 + "&toDate=" + d2);
+                        break;
+                    case 3://count in 0,  days, years not in 1
+                        response = await Client.GetAsync("/v1/shots/player/" + player + "/history?fromDate=" + d1 + "&toDate=" + d2);
+                        break;
+                    default://all shots, count = 0, not days, years in 1
+
+                        response = await Client.GetAsync("/v1/shots/player/" + player+ "/history");
+                        break;
+                }
+               
             }
             catch (Exception ex)
             {
